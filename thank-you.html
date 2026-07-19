@@ -6,6 +6,28 @@
 <title>נשאר צעד אחד | קהילת צמד ברזל</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0a1f3d">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '985722164425425');
+fbq('track', 'PageView');
+/* This page is only reachable after a submitted form, so it is the conversion
+   signal the ad campaign optimises against. Fired here rather than on submit:
+   the redirect is wrapped in .finally(), so arriving here is the one event
+   that always means a real lead went through the funnel. */
+fbq('track', 'Lead');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=985722164425425&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <!-- Self-hosted fonts, same as the landing page: no third-party handshake, and
      Heebo's variable file covers every weight from a single request per subset. -->
 <link rel="preload" href="assets/fonts/heebo-hebrew.woff2" as="font" type="font/woff2" crossorigin>

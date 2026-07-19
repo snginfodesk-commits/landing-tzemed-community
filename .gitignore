@@ -13,3 +13,4 @@ node_modules/
 # Note: the original logo-gold.png and the msg-*.jpg sources ARE committed on
 # purpose. They are only ~450KB total and they are the only full-resolution
 # copies — without them the assets cannot be regenerated at a different size.
+.vercel
