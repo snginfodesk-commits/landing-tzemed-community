@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>קהילת צמד ברזל | ערוץ סגור למשקיעי נדל״ן</title>
+<meta name="description" content="קהילת צמד ברזל: ניתוחי שוק, דעות מקצועיות והזדמנויות שעברו סינון. השאירו פרטים וקבלו את קישור ההצטרפות.">
+<meta name="theme-color" content="#0a1f3d">
+<!-- Fonts are self-hosted: the Google Fonts stylesheet was the only render-blocking
+     resource on this page, and it cost two third-party DNS+TLS handshakes before any
+     text could be styled. Heebo is a variable font, so ONE file per subset covers
+     every weight 100-900. Hebrew is preloaded (all headline copy); Latin loads on
+     demand for digits and the email placeholder. -->
+<link rel="preload" href="assets/fonts/heebo-hebrew.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{
+    font-family:'Heebo';font-style:normal;font-weight:100 900;font-display:swap;
+    src:url('assets/fonts/heebo-hebrew.woff2') format('woff2');
+    unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;
+  }
+  @font-face{
+    font-family:'Heebo';font-style:normal;font-weight:100 900;font-display:swap;
+    src:url('assets/fonts/heebo-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  :root{
+    --navy:#0a1f3d; --navy-dark:#061328; --navy-soft:#0f2a4f;
+    --gold:#b08456; --gold-light:#d4a574; --gold-dark:#8a6440;
+    --cream:#faf8f4; --wa:#25D366; --wa-dark:#1da851;
+    --txt-dim:#b9c4d4; --txt-dimmer:#8b96a8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Heebo',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+    background:var(--navy); color:#fff; line-height:1.65; overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px;}
+  .narrow{max-width:720px;margin:0 auto;}
+
+  section{padding:64px 0;}
+  h2{
+    font-size:38px;font-weight:900;line-height:1.2;
+    text-align:center;margin-bottom:12px;
+  }
+  h2 .g{color:var(--gold-light);}
+  .h2sub{
+    text-align:center;font-size:19px;color:var(--txt-dim);
+    max-width:620px;margin:0 auto 40px;
+  }
+  .rule{
+    width:56px;height:3px;background:var(--gold);
+    margin:0 auto 34px;border-radius:2px;
+  }
+
+  /* ===== CTA BUTTON ===== */
+  /* green is the single "join" action colour across the whole funnel:
+     this CTA, the form submit, and the WhatsApp button on the thank-you page.
+     Gold stays the brand accent (headlines, borders, dividers) — never an action. */
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--wa);
+    color:#fff;font-family:inherit;
+    font-size:21px;font-weight:800;padding:19px 42px;
+    border:none;border-radius:60px;cursor:pointer;text-decoration:none;
+    box-shadow:0 12px 34px rgba(37,211,102,.38);
+    transition:transform .12s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .cta:hover{background:var(--wa-dark);transform:translateY(-2px);box-shadow:0 16px 42px rgba(37,211,102,.5);}
+  .cta:active{transform:translateY(0);}
+  .cta-row{text-align:center;}
+
+  /* ===== HEADER ===== */
+  header{padding:24px 0 6px;text-align:center;}
+  /* logo ships gold; brightness(0) crushes every opaque pixel to black, invert(1)
+     lifts it to pure white — alpha channel is preserved, so no white box */
+  header img{height:82px;width:auto;filter:brightness(0) invert(1);}
+
+  /* ===== HERO ===== */
+  .hero{
+    text-align:center;padding:30px 0 56px;
+    background:radial-gradient(ellipse at 50% -20%, rgba(176,132,86,.24), transparent 62%);
+  }
+  h1{
+    font-size:46px;font-weight:900;line-height:1.18;
+    margin-bottom:20px;max-width:940px;margin-inline:auto;
+    text-wrap:balance;
+  }
+  h1 .g{color:var(--gold-light);}
+  .hero .sub{
+    font-size:21px;color:var(--txt-dim);max-width:640px;margin:0 auto 12px;
+  }
+  .hero .sub b{color:#fff;font-weight:700;}
+  .hero .cta{margin-top:26px;}
+  .microtrust{
+    margin-top:18px;font-size:15px;color:var(--txt-dimmer);
+  }
+  .microtrust span{color:var(--gold-light);}
+
+  /* ===== COMPARE ===== */
+  .compare{background:var(--navy-dark);}
+  .cmp-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    max-width:860px;margin:0 auto;border-radius:18px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.09);
+  }
+  .cmp-head{
+    padding:18px 22px;font-size:17px;font-weight:800;text-align:center;
+  }
+  .cmp-head.bad{background:rgba(255,255,255,.05);color:var(--txt-dimmer);}
+  .cmp-head.good{background:rgba(176,132,86,.18);color:var(--gold-light);}
+  .cmp-cell{
+    padding:17px 22px;font-size:16.5px;
+    border-top:1px solid rgba(255,255,255,.07);
+    display:flex;align-items:flex-start;gap:9px;
+  }
+  .cmp-cell.bad{color:var(--txt-dimmer);}
+  .cmp-cell.bad::before{content:"✕";color:#7a8496;font-weight:700;flex-shrink:0;}
+  .cmp-cell.good{background:rgba(176,132,86,.06);color:#eef2f7;font-weight:500;}
+  .cmp-cell.good::before{content:"✓";color:var(--gold-light);font-weight:900;flex-shrink:0;}
+  .cmp-label{display:none;}
+
+  .pledge{
+    max-width:720px;margin:36px auto 0;text-align:center;
+    background:rgba(176,132,86,.09);border:1px solid rgba(176,132,86,.34);
+    border-radius:16px;padding:28px 26px;
+  }
+  .pledge p:first-child{
+    font-size:22px;font-weight:800;color:var(--gold-light);margin-bottom:8px;
+  }
+  .pledge p:last-child{font-size:17px;color:var(--txt-dim);}
+
+  /* ===== WHAT YOU GET ===== */
+  .gets{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:18px;
+    max-width:880px;margin:0 auto;
+  }
+  .get{
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);
+    border-radius:16px;padding:26px 24px;
+    border-top:3px solid var(--gold);
+  }
+  .get .ic{font-size:28px;display:block;margin-bottom:10px;}
+  .get h3{font-size:20px;font-weight:800;margin-bottom:8px;color:#fff;}
+  .get p{font-size:16px;color:var(--txt-dim);}
+
+  /* ===== FIT / NOT FIT ===== */
+  .fit{background:var(--navy-dark);}
+  .fit-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto;
+  }
+  .fit-card{border-radius:16px;padding:28px 26px;}
+  .fit-card.yes{background:rgba(176,132,86,.1);border:1px solid rgba(176,132,86,.4);}
+  .fit-card.no{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);}
+  .fit-card h3{font-size:21px;font-weight:800;margin-bottom:16px;}
+  .fit-card.yes h3{color:var(--gold-light);}
+  .fit-card.no h3{color:#9aa5b6;}
+  .fit-card li{
+    list-style:none;font-size:16.5px;margin-bottom:13px;
+    display:flex;gap:10px;align-items:flex-start;line-height:1.55;
+  }
+  .fit-card.yes li{color:#eef2f7;}
+  .fit-card.no li{color:var(--txt-dimmer);}
+  .fit-card li::before{flex-shrink:0;font-weight:900;}
+  .fit-card.yes li::before{content:"✓";color:var(--gold-light);}
+  .fit-card.no li::before{content:"✕";color:#6f7a8c;}
+
+  /* ===== FOUNDERS ===== */
+  .founders{background:var(--navy-dark);}
+  .fnd-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px;margin:0 auto 30px;
+  }
+  .fnd{
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);
+    border-radius:16px;padding:28px 24px;text-align:center;
+  }
+  .fnd .avatar{
+    display:block;width:104px;height:104px;border-radius:50%;margin:0 auto 14px;
+    border:2px solid var(--gold);background:rgba(176,132,86,.15);
+    object-fit:cover; /* square sources, but never let a non-square one distort */
+  }
+  .fnd h3{font-size:21px;font-weight:800;margin-bottom:4px;}
+  .fnd .role{font-size:15px;color:var(--gold-light);font-weight:700;margin-bottom:10px;}
+  .fnd p{font-size:16px;color:var(--txt-dim);}
+  .fnd-note{
+    max-width:640px;margin:0 auto;text-align:center;
+    font-size:17.5px;color:var(--txt-dim);line-height:1.7;
+  }
+  .fnd-note b{color:#fff;}
+
+  /* ===== PROOF ===== */
+  .proof{
+    background:var(--navy-dark);text-align:center;padding:56px 0;
+  }
+  .proof .big{
+    font-size:64px;font-weight:900;color:var(--gold-light);line-height:1;
+    margin-bottom:6px;
+  }
+  .proof .lbl{font-size:22px;font-weight:700;}
+
+  /* ===== FORM ===== */
+  .formsec{
+    background:radial-gradient(ellipse at 50% 0%, rgba(176,132,86,.2), transparent 60%);
+    padding:64px 0 72px;
+  }
+  .card{
+    background:var(--cream);color:var(--navy);
+    max-width:540px;margin:0 auto;border-radius:20px;
+    padding:38px 34px 32px;box-shadow:0 24px 60px rgba(0,0,0,.42);
+    border-top:5px solid var(--gold);
+  }
+  .card h2{font-size:30px;color:var(--navy);margin-bottom:6px;}
+  .card .lead{text-align:center;color:#5a6472;font-size:16.5px;margin-bottom:26px;}
+
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:15px;font-weight:700;margin-bottom:7px;color:#33404f;}
+  .field input{
+    width:100%;padding:15px 16px;font-size:17px;font-family:inherit;
+    border:2px solid #e2ddd3;border-radius:12px;background:#fff;color:var(--navy);
+    transition:border-color .15s;
+  }
+  .field input:focus{outline:none;border-color:var(--gold);}
+  .field.has-error input{border-color:#d9384a;background:#fff5f5;}
+  .field .err{display:none;color:#d9384a;font-size:13.5px;font-weight:600;margin-top:6px;}
+  .field.has-error .err{display:block;}
+
+  /* green matches the WhatsApp CTA on the thank-you page, so the action the
+     visitor is starting here looks like the action they finish there */
+  .submit{
+    width:100%;margin-top:10px;padding:18px;font-size:20px;font-weight:800;
+    font-family:inherit;color:#fff;background:var(--wa);border:none;
+    border-radius:12px;cursor:pointer;transition:transform .1s, background .2s;
+    box-shadow:0 8px 24px rgba(37,211,102,.35);
+  }
+  .submit:hover{background:var(--wa-dark);transform:translateY(-1px);}
+  .submit:disabled{opacity:.65;cursor:default;transform:none;}
+  .privacy{text-align:center;font-size:13.5px;color:#8b93a0;margin-top:15px;}
+  .privacy .lock{color:var(--gold-dark);}
+
+  /* ===== STICKY MOBILE CTA ===== */
+  .sticky{
+    display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;
+    background:rgba(6,19,40,.96);backdrop-filter:blur(8px);
+    border-top:1px solid rgba(176,132,86,.35);
+    padding:11px 14px calc(11px + env(safe-area-inset-bottom));
+    transform:translateY(110%);transition:transform .28s ease;
+  }
+  .sticky.show{transform:translateY(0);}
+  .sticky .cta{width:100%;font-size:18px;padding:15px;box-shadow:none;}
+
+  footer{
+    background:var(--navy-dark);text-align:center;padding:26px 22px;
+    color:#7787a0;font-size:13.5px;border-top:1px solid rgba(255,255,255,.06);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:820px){
+    .gets,.fit-grid,.fnd-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:560px){
+    section{padding:48px 0;}
+    h1{font-size:33px;}
+    h2{font-size:28px;}
+    .hero .sub{font-size:18px;}
+    .h2sub{font-size:17px;margin-bottom:30px;}
+    .cta{font-size:18px;padding:17px 30px;width:100%;}
+    .sticky{display:block;}
+    body{padding-bottom:74px;}
+
+    /* contrast table -> stacked cards */
+    .cmp-grid{grid-template-columns:1fr;border:none;background:none;gap:10px;}
+    .cmp-head{display:none;}
+    .cmp-cell{
+      border:1px solid rgba(255,255,255,.09);border-radius:12px;
+      flex-direction:column;gap:4px;padding:14px 16px;font-size:16px;
+    }
+    .cmp-cell::before{display:none;}
+    .cmp-label{
+      display:block;font-size:12.5px;font-weight:800;letter-spacing:.4px;
+      text-transform:uppercase;margin-bottom:2px;
+    }
+    .cmp-cell.bad .cmp-label{color:#6f7a8c;}
+    .cmp-cell.good .cmp-label{color:var(--gold-light);}
+    .cmp-cell.bad{margin-bottom:-4px;opacity:.75;}
+    .cmp-cell.good{border-color:rgba(176,132,86,.42);margin-bottom:10px;}
+
+    .card{padding:30px 22px 26px;}
+    .card h2{font-size:25px;}
+    .proof .big{font-size:52px;}
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap"><img src="assets/logo-gold.webp" width="122" height="200" alt="צמד ברזל, יזמות ונדל״ן"></div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" style="padding-top:30px;">
+    <div class="wrap">
+      <h1>עסקת הנדל״ן הבאה שלך <span class="g">נמצאת כאן!</span></h1>
+      <p class="sub">
+        קהילת צמד ברזל היא ערוץ סגור למשקיעים: ניתוחי שוק, דעות מקצועיות והזדמנויות שעברו סינון.
+      </p>
+      <div class="cta-row">
+        <a href="#form" class="cta js-scroll">אני רוצה להצטרף לקהילה!</a>
+      </div>
+      <p class="microtrust">מעל 300 משקיעים כבר בפנים <span>·</span> ההצטרפות חינם</p>
+    </div>
+  </section>
+
+  <!-- ================= WHY DIFFERENT ================= -->
+  <section class="compare">
+    <div class="wrap">
+      <h2>אתה כבר בשלוש קבוצות נדל״ן.<br>אנחנו <span class="g">יודעים</span>.</h2>
+      <p class="h2sub">ובגלל זה בנינו את זו אחרת.</p>
+
+      <div class="cmp-grid">
+        <div class="cmp-head bad">ברוב הקבוצות</div>
+        <div class="cmp-head good">בקהילת צמד ברזל</div>
+
+        <div class="cmp-cell bad"><span class="cmp-label">ברוב הקבוצות</span>כל עסקה שמגיעה מתפרסמת</div>
+        <div class="cmp-cell good"><span class="cmp-label">בצמד ברזל</span>רק מה שהיינו שמים עליו כסף שלנו</div>
+
+        <div class="cmp-cell bad"><span class="cmp-label">ברוב הקבוצות</span>״הזדמנות מטורפת!!!״</div>
+        <div class="cmp-cell good"><span class="cmp-label">בצמד ברזל</span>למה כן, למה לא, ומה הסיכון</div>
+
+        <div class="cmp-cell bad"><span class="cmp-label">ברוב הקבוצות</span>כל אחד יכול לפרסם</div>
+        <div class="cmp-cell good"><span class="cmp-label">בצמד ברזל</span>רק אנחנו מפרסמים</div>
+      </div>
+
+      <div class="pledge">
+        <p>המבחן שלנו לפני כל פרסום: היינו מציגים את זה למשפחה שלנו?</p>
+        <p>אם התשובה היא לא, זה לא נכנס לקהילה. זאת הסיבה שכל עסקה שלנו היא חריגה.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHAT YOU GET ================= -->
+  <section>
+    <div class="wrap">
+      <h2>מה נכנס <span class="g">לקהילה</span></h2>
+      <div class="rule"></div>
+
+      <div class="gets">
+        <div class="get">
+          <span class="ic">📊</span>
+          <h3>ניתוחי שוק, לא כותרות</h3>
+          <p>מה קרה השבוע בשוק, ומה זה אומר עליך כמשקיע. את הכותרות אתה יכול לקרוא לבד. אנחנו מביאים את הפרשנות.</p>
+        </div>
+        <div class="get">
+          <span class="ic">🔍</span>
+          <h3>הזדמנויות שעברו סינון</h3>
+          <p>עסקאות מתחת לרדאר, כאלה שלא מגיעות ללוחות. לא כל שבוע. רק כשיש משהו אמיתי.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FIT / NOT FIT ================= -->
+  <section class="fit">
+    <div class="wrap">
+      <h2>לפני שאתה משאיר פרטים,<br><span class="g">תקרא את זה</span></h2>
+      <p class="h2sub">אנחנו מעדיפים שתדע מראש. עדיף שלא תיכנס, מאשר שתיכנס ותתאכזב.</p>
+
+      <div class="fit-grid">
+        <div class="fit-card yes">
+          <h3>הקהילה בשבילך אם:</h3>
+          <ul>
+            <li>אתה בתחילת הדרך ורוצה להבין את השוק לפני שאתה שם כסף</li>
+            <li>כבר השקעת בעבר ואתה מחפש את העסקה הבאה</li>
+            <li>אתה רוצה להישאר מעודכן במה שקורה בנדל״ן בישראל</li>
+            <li>אתה מחפש עסקאות מתחת לרדאר</li>
+          </ul>
+        </div>
+        <div class="fit-card no">
+          <h3>הקהילה לא בשבילך אם:</h3>
+          <ul>
+            <li>אתה מחפש הבטחות תשואה</li>
+            <li>אתה מצפה לעסקה חדשה כל יום</li>
+            <li>אתה מחפש מקום לפרסם בו את הנכסים שלך</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOUNDERS ================= -->
+  <section class="founders">
+    <div class="wrap">
+      <h2>מי אנחנו</h2>
+      <div class="rule"></div>
+
+      <div class="fnd-grid">
+        <div class="fnd">
+          <img class="avatar" src="assets/amit.webp" width="220" height="220" loading="lazy" decoding="async" alt="עמית גולד, מייסד שותף בצמד ברזל">
+          <h3>עמית גולד</h3>
+          <p class="role">מייסד שותף, צמד ברזל</p>
+          <p>יזם נדל״ן עם ניסיון עשיר, הכשרה מקצועית, ותשוקה אמיתית לתחום. לאורך 5 שנים עבר מגוון קורסים והכשרות בתחום ההשקעות ויזמות נדל״ן, וביצע עשרות עסקאות נדל״ן מוצלחות לעצמו ולמשקיעים.</p>
+        </div>
+        <div class="fnd">
+          <img class="avatar" src="assets/noam.webp" width="220" height="220" loading="lazy" decoding="async" alt="נועם סדן, מייסד שותף בצמד ברזל">
+          <h3>נועם סדן</h3>
+          <p class="role">מייסד שותף, צמד ברזל</p>
+          <p>מומחה להשקעות נדל״ן וניתוח עסקאות. בעל הבנה עמוקה של השוק וראייה אסטרטגית. בעל הכשרה מקצועית רחבה בתחום, עבר קורסים מעשיים וייעודיים, והוביל תהליכים של ליווי אישי וקבוצתי לעשרות רוכשים.</p>
+        </div>
+      </div>
+
+      <p class="fnd-note">
+        <b>אנחנו לא עיתונאים ולא משפיענים. אנחנו בשוק, עם כסף שלנו בפנים.</b><br>
+        אנחנו חיים את שוק הנדל״ן ומדברים מניסיון.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= PROOF ================= -->
+  <section class="proof">
+    <div class="wrap">
+      <div class="big">300+</div>
+      <div class="lbl">משקיעים כבר בפנים</div>
+    </div>
+  </section>
+
+  <!-- ================= FORM ================= -->
+  <section class="formsec" id="form">
+    <div class="wrap">
+      <div class="card">
+        <h2>מוכן להיכנס?</h2>
+        <p class="lead">השאירו פרטים ותקבלו את קישור ההצטרפות במסך הבא.</p>
+
+        <form id="leadForm" novalidate>
+          <div class="field" id="g-name">
+            <label for="fullname">שם מלא</label>
+            <input type="text" id="fullname" name="name" autocomplete="name" placeholder="ישראל ישראלי">
+            <div class="err">נא להזין שם מלא</div>
+          </div>
+
+          <div class="field" id="g-phone">
+            <label for="phone">מספר טלפון</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="numeric" placeholder="050-0000000">
+            <div class="err">נא להזין מספר טלפון תקין</div>
+          </div>
+
+          <div class="field" id="g-email">
+            <label for="email">כתובת מייל</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="name@email.com">
+            <div class="err">נא להזין כתובת מייל תקינה</div>
+          </div>
+
+          <button type="submit" class="submit" id="submitBtn">
+            <span>שלחו לי את הקישור לקהילה</span>
+          </button>
+
+          <p class="privacy"><span class="lock">🔒</span> הפרטים נשמרים בדיסקרטיות. לא מועברים לאף גורם שלישי.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 צמד ברזל, יזמות ונדל״ן | כל הזכויות שמורות</footer>
+
+  <!-- ================= STICKY MOBILE CTA ================= -->
+  <div class="sticky" id="sticky">
+    <a href="#form" class="cta js-scroll">אני רוצה להצטרף לקהילה!</a>
+  </div>
+
+<script>
+  // ========== STICKY CTA: show past hero, hide when form is in view ==========
+  // Plain scroll listener on purpose: IntersectionObserver callbacks are unreliable
+  // inside in-app webviews (Instagram/Facebook browsers) — where most of our paid
+  // traffic actually lands. rAF-throttled so it stays cheap.
+  (function () {
+    var sticky = document.getElementById('sticky');
+    var hero = document.querySelector('.hero');
+    var formSec = document.getElementById('form');
+    if (!sticky || !hero || !formSec) return;
+
+    function update() {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var heroVisible = hero.getBoundingClientRect().bottom > 0;
+      var f = formSec.getBoundingClientRect();
+      var formVisible = f.top < vh && f.bottom > 0;
+      if (!heroVisible && !formVisible) sticky.classList.add('show');
+      else sticky.classList.remove('show');
+    }
+    // Called directly rather than via requestAnimationFrame: rAF can be throttled
+    // to zero in backgrounded/in-app webviews. Two getBoundingClientRect reads
+    // per scroll tick is cheap enough to not need the throttle.
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  })();
+
+  // ========== SCROLL TO FORM + FOCUS FIRST FIELD ==========
+  (function () {
+    document.querySelectorAll('.js-scroll').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(function () { document.getElementById('fullname').focus({ preventScroll: true }); }, 550);
+      });
+    });
+  })();
+
+  // ========== FORM VALIDATION + SUBMIT ==========
+  (function () {
+    // ===== CRM integration (n8n shared workflow) =====
+    var WEBHOOK_URL = 'https://n8n.srv1270696.hstgr.cloud/webhook/888d530f-3e94-4178-a39a-b9e29694e037';
+    var LEAD_SOURCE = 'קמפיין ממומן';
+    var LEAD_RESPONSIBLE = 'רוסו';
+    var LEAD_LECTURE = 'קהילת צמד ברזל';
+
+    var form = document.getElementById('leadForm');
+    var btn = document.getElementById('submitBtn');
+
+    function setError(groupId, hasError) {
+      var g = document.getElementById(groupId);
+      if (hasError) g.classList.add('has-error');
+      else g.classList.remove('has-error');
+    }
+
+    function validatePhone(v) {
+      var digits = v.replace(/\D/g, '');
+      return digits.length >= 9 && digits.length <= 11;
+    }
+    function validateEmail(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+
+    function submitLead(name, phone, email) {
+      var payload = { name: name, phone: phone, email: email, source: LEAD_SOURCE, responsible: LEAD_RESPONSIBLE, lectureName: LEAD_LECTURE };
+      return fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).then(function (r) {
+        if (!r.ok) throw new Error('webhook returned ' + r.status);
+      }).catch(function (err) {
+        try {
+          var pending = JSON.parse(localStorage.getItem('tb_leads_pending') || '[]');
+          pending.push(Object.assign({}, payload, { ts: new Date().toISOString(), error: String(err) }));
+          localStorage.setItem('tb_leads_pending', JSON.stringify(pending));
+        } catch (_) {}
+      });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('fullname').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var email = document.getElementById('email').value.trim();
+
+      var nameErr = name.length < 2;
+      var phoneErr = !validatePhone(phone);
+      var emailErr = !validateEmail(email);
+
+      setError('g-name', nameErr);
+      setError('g-phone', phoneErr);
+      setError('g-email', emailErr);
+
+      if (nameErr || phoneErr || emailErr) {
+        if (nameErr) document.getElementById('fullname').focus();
+        else if (phoneErr) document.getElementById('phone').focus();
+        else document.getElementById('email').focus();
+        return;
+      }
+
+      btn.disabled = true;
+      btn.querySelector('span').textContent = 'שולח...';
+
+      submitLead(name, phone, email).finally(function () {
+        window.location.href = 'thank-you.html?name=' + encodeURIComponent(name);
+      });
+    });
+  })();
+</script>
+</body>
+</html>

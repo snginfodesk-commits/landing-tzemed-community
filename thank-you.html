@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>נשאר צעד אחד | קהילת צמד ברזל</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a1f3d">
+<!-- Self-hosted fonts, same as the landing page: no third-party handshake, and
+     Heebo's variable file covers every weight from a single request per subset. -->
+<link rel="preload" href="assets/fonts/heebo-hebrew.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{
+    font-family:'Heebo';font-style:normal;font-weight:100 900;font-display:swap;
+    src:url('assets/fonts/heebo-hebrew.woff2') format('woff2');
+    unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;
+  }
+  @font-face{
+    font-family:'Heebo';font-style:normal;font-weight:100 900;font-display:swap;
+    src:url('assets/fonts/heebo-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  :root{
+    --navy:#0a1f3d; --navy-dark:#061328;
+    --gold:#b08456; --gold-light:#d4a574; --cream:#faf8f4;
+    --wa:#25D366; --wa-dark:#1da851;
+    --txt-dim:#b9c4d4; --txt-dimmer:#8b96a8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Heebo',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+    background:var(--navy);color:#fff;line-height:1.65;
+    min-height:100vh;display:flex;flex-direction:column;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px;width:100%;}
+
+  header{padding:24px 0 4px;text-align:center;}
+  /* logo ships gold; brightness(0) crushes every opaque pixel to black, invert(1)
+     lifts it to pure white — alpha channel is preserved, so no white box */
+  header img{height:74px;width:auto;filter:brightness(0) invert(1);}
+
+  main{
+    flex:1;padding:22px 0 54px;text-align:center;
+    background:radial-gradient(ellipse at 50% 0%, rgba(176,132,86,.22), transparent 58%);
+  }
+
+  .check{
+    width:84px;height:84px;margin:0 auto 22px;border-radius:50%;
+    background:var(--wa);display:flex;align-items:center;justify-content:center;
+    font-size:46px;box-shadow:0 12px 40px rgba(37,211,102,.4);
+    animation:pop .5s ease;
+  }
+  @keyframes pop{0%{transform:scale(.4);opacity:0;}100%{transform:scale(1);opacity:1;}}
+
+  h1{font-size:36px;font-weight:900;line-height:1.2;margin-bottom:8px;}
+  h1 .g{color:var(--gold-light);}
+  .step-left{
+    font-size:23px;font-weight:800;color:var(--gold-light);margin-bottom:32px;
+  }
+
+  /* ===== THE ONE CTA ===== */
+  .wa-btn{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    background:var(--wa);color:#fff;font-size:22px;font-weight:800;
+    padding:21px 26px;border-radius:60px;text-decoration:none;
+    box-shadow:0 12px 38px rgba(37,211,102,.45);
+    transition:transform .12s, background .2s;
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  .wa-btn:hover{background:var(--wa-dark);transform:translateY(-2px);animation:none;}
+  .wa-btn svg{width:32px;height:32px;flex-shrink:0;}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 12px 38px rgba(37,211,102,.45);}
+    50%{box-shadow:0 12px 38px rgba(37,211,102,.45), 0 0 0 12px rgba(37,211,102,0);}
+    0%{box-shadow:0 12px 38px rgba(37,211,102,.45), 0 0 0 0 rgba(37,211,102,.4);}
+  }
+  .note{font-size:14px;color:var(--txt-dimmer);margin-top:14px;}
+
+  /* ===== CAROUSEL ===== */
+  .car-wrap{margin-top:46px;}
+  .car-title{font-size:24px;font-weight:900;margin-bottom:20px;}
+
+  .car{position:relative;}
+
+  /* native horizontal scroll + snap: touch swipe works with zero JS,
+     which also means it still works if scripting is throttled in a webview */
+  .car-track{
+    display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;scroll-behavior:smooth;
+    padding:4px;margin:-4px;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .car-track::-webkit-scrollbar{display:none;}
+
+  .slide{
+    flex:0 0 auto;width:min(300px,76vw);scroll-snap-align:center;margin:0;
+    position:relative;border-radius:14px;overflow:hidden;
+    border:1px solid rgba(176,132,86,.35);
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
+  }
+  .slide img{display:block;width:100%;height:auto;}
+  /* the sources are cropped, so fade the cut edge instead of ending it flat —
+     it reads as "there is more inside" rather than as a mistake */
+  .slide::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:70px;
+    background:linear-gradient(to top, rgba(10,31,61,.85), transparent);
+    pointer-events:none;
+  }
+
+  .car-nav{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+    width:40px;height:40px;border-radius:50%;cursor:pointer;
+    background:rgba(6,19,40,.9);color:var(--gold-light);
+    border:1px solid rgba(176,132,86,.5);
+    font-size:24px;line-height:1;font-family:inherit;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s,opacity .2s;
+  }
+  .car-nav:hover{background:var(--gold);color:var(--navy-dark);}
+  .car-nav:disabled{opacity:.3;cursor:default;}
+  /* RTL: "prev" sits on the right */
+  .car-nav.prev{right:-6px;}
+  .car-nav.next{left:-6px;}
+
+  .dots{display:flex;justify-content:center;gap:7px;margin-top:16px;}
+  .dot{
+    width:7px;height:7px;border-radius:50%;padding:0;cursor:pointer;
+    background:rgba(255,255,255,.25);border:none;transition:all .2s;
+  }
+  .dot.on{background:var(--gold-light);width:22px;border-radius:4px;}
+
+  footer{background:var(--navy-dark);text-align:center;padding:22px;color:#7787a0;font-size:13px;}
+
+  @media(max-width:560px){
+    h1{font-size:29px;}
+    .step-left{font-size:20px;}
+    .wa-btn{font-size:19px;padding:18px 20px;}
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap"><img src="assets/logo-gold.webp" width="122" height="200" alt="צמד ברזל, יזמות ונדל״ן"></div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="check">✓</div>
+      <h1><span class="g" id="greet"></span>נשאר עוד צעד אחרון</h1>
+      <p class="step-left">לחץ כאן להצטרפות ותקבל גישה לכל תוכן הקהילה</p>
+
+      <a class="wa-btn" href="https://chat.whatsapp.com/CZxdM5QHuOhI8iyQMgCEVn?s=cl&p=i&ilr=0&amv=0" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#fff" d="M16 0C7.164 0 0 7.164 0 16c0 2.824.74 5.475 2.03 7.775L0 32l8.44-2.21A15.9 15.9 0 0 0 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0z"/>
+          <path fill="#25D366" d="M24.06 19.52c-.44-.22-2.6-1.28-3-1.43-.4-.15-.7-.22-1 .22-.29.44-1.14 1.43-1.4 1.72-.26.29-.51.33-.95.11-.44-.22-1.86-.69-3.54-2.19-1.31-1.17-2.19-2.61-2.45-3.05-.26-.44-.03-.68.19-.9.2-.2.44-.51.66-.77.22-.26.29-.44.44-.73.15-.29.07-.55-.04-.77-.11-.22-1-2.4-1.36-3.29-.36-.86-.72-.74-1-.76-.26-.01-.55-.01-.85-.01-.29 0-.77.11-1.17.55-.4.44-1.54 1.5-1.54 3.68 0 2.17 1.58 4.27 1.8 4.56.22.29 3.11 4.75 7.54 6.66 1.05.45 1.87.72 2.51.93 1.06.33 2.02.29 2.78.18.85-.13 2.6-1.06 2.97-2.09.37-1.03.37-1.91.26-2.09-.11-.18-.4-.29-.84-.51z"/>
+        </svg>
+        הצטרפות לקהילה
+      </a>
+      <p class="note">אם הכפתור לא נפתח, ודאו שוואטסאפ מותקן במכשיר.</p>
+
+      <!-- ============ CAROUSEL: real messages from the community ============
+           Sources are cropped to a uniform 600x743 (top-anchored) so the slides
+           line up; the .slide::after gradient makes that crop read as intentional. -->
+      <section class="car-wrap">
+        <h2 class="car-title">ככה זה נראה בפנים</h2>
+
+        <div class="car">
+          <button class="car-nav prev" id="prev" aria-label="הקודם">‹</button>
+
+          <div class="car-track" id="track">
+            <figure class="slide">
+              <img src="assets/msg-1-market.webp" width="600" height="743" loading="lazy" decoding="async"
+                   alt="הודעה מהקהילה: ריבית בנק ישראל יורדת ל-3.5% ומה זה אומר על המשכנתא">
+            </figure>
+            <figure class="slide">
+              <img src="assets/msg-2-radar.webp" width="600" height="743" loading="lazy" decoding="async"
+                   alt="הודעה מהקהילה: משא ומתן על עסקת פריסייל מתחת לרדאר">
+            </figure>
+            <figure class="slide">
+              <img src="assets/msg-3-members.webp" width="600" height="743" loading="lazy" decoding="async"
+                   alt="הודעה מהקהילה: וובינר חשיפה לחברי הקהילה בלבד">
+            </figure>
+            <figure class="slide">
+              <img src="assets/msg-4-education.webp" width="600" height="743" loading="lazy" decoding="async"
+                   alt="הודעה מהקהילה: תוכן לזוגות על ניהול כספי לפני החלטות נדל״ן">
+            </figure>
+          </div>
+
+          <button class="car-nav next" id="next" aria-label="הבא">›</button>
+        </div>
+
+        <div class="dots" id="dots"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>© 2026 צמד ברזל, יזמות ונדל״ן | כל הזכויות שמורות</footer>
+
+<script>
+  // Personalize the headline with the name passed from the form.
+  // textContent (not innerHTML) — the name is user input echoed back into the page.
+  (function () {
+    try {
+      var name = (new URLSearchParams(window.location.search).get('name') || '').trim();
+      if (name) document.getElementById('greet').textContent = name + ', ';
+    } catch (_) {}
+  })();
+
+  // ===== CAROUSEL =====
+  // Driven by native scroll + snap; JS only adds arrows and dots, so a swipe
+  // still works even if scripting is throttled. No IntersectionObserver on
+  // purpose — it does not fire reliably in Instagram/Facebook in-app webviews.
+  (function () {
+    var track = document.getElementById('track');
+    var prev = document.getElementById('prev');
+    var next = document.getElementById('next');
+    var dotsBox = document.getElementById('dots');
+    if (!track) return;
+
+    var slides = [].slice.call(track.querySelectorAll('.slide'));
+    if (slides.length < 2) { if (dotsBox) dotsBox.style.display = 'none'; return; }
+
+    // build dots
+    var dots = slides.map(function (_, i) {
+      var b = document.createElement('button');
+      b.className = 'dot' + (i === 0 ? ' on' : '');
+      b.setAttribute('aria-label', 'שקופית ' + (i + 1));
+      b.addEventListener('click', function () { go(i); });
+      dotsBox.appendChild(b);
+      return b;
+    });
+
+    // Scroll position is measured with Math.abs and moved with relative scrollBy:
+    // RTL engines disagree on the sign of scrollLeft (this one runs 0 → -max),
+    // and scroll-snap-align:center means snap points are NOT multiples of the
+    // slide width. Relative deltas from real geometry sidestep both problems.
+    function maxScroll() { return track.scrollWidth - track.clientWidth; }
+    function pos() { return Math.abs(track.scrollLeft); }
+    function centerOf(el) {
+      var r = el.getBoundingClientRect();
+      return r.left + r.width / 2;
+    }
+    function current() {
+      // The first/last slides can never reach the centre (the scroller clamps),
+      // so pin them explicitly instead of trusting nearest-centre at the edges.
+      if (pos() <= 1) return 0;
+      if (pos() >= maxScroll() - 1) return slides.length - 1;
+      var mid = centerOf(track), best = 0, bestD = Infinity;
+      slides.forEach(function (s, i) {
+        var d = Math.abs(centerOf(s) - mid);
+        if (d < bestD) { bestD = d; best = i; }
+      });
+      return best;
+    }
+    function go(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      // let the scroller clamp at the ends rather than computing an absolute target
+      track.scrollBy({ left: centerOf(slides[i]) - centerOf(track), behavior: 'smooth' });
+    }
+    function sync() {
+      var i = current();
+      dots.forEach(function (d, n) { d.classList.toggle('on', n === i); });
+      prev.disabled = pos() <= 1;
+      next.disabled = pos() >= maxScroll() - 1;
+    }
+
+    prev.addEventListener('click', function () { go(current() - 1); });
+    next.addEventListener('click', function () { go(current() + 1); });
+    track.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync, { passive: true });
+    sync();
+  })();
+</script>
+</body>
+</html>
