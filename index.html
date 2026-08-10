@@ -140,6 +140,22 @@ src="https://www.facebook.com/tr?id=1049665351120523&ev=PageView&noscript=1"
     margin:34px auto 0;max-width:640px;line-height:1.45;
   }
   .story .q .g{color:var(--gold-light);}
+  .talk-photos{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+    margin:32px auto 6px;padding:0;
+  }
+  .talk-photos img{
+    width:100%;height:auto;display:block;border-radius:14px;
+    border:1px solid rgba(176,132,86,.4);
+    box-shadow:0 14px 34px rgba(0,0,0,.34);
+  }
+  .talk-photos figcaption{
+    grid-column:1 / -1;margin-top:8px;text-align:center;
+    font-size:14px;color:var(--txt-dimmer);
+  }
+  @media(max-width:560px){
+    .talk-photos{grid-template-columns:1fr;gap:16px;}
+  }
 
   /* ===== WHAT YOU GET ===== */
   .gets{
@@ -315,6 +331,11 @@ src="https://www.facebook.com/tr?id=1049665351120523&ev=PageView&noscript=1"
         <p>עוברים חודשים, ואז מגיעה ההודעה: ״וגם הפעם לא זכיתם״. כאן מגיע החלק שאף אחד לא מספר לכם. אתם לא חוזרים לאותה נקודה שבה התחלתם, אתם חוזרים לשוק שהשתנה לגמרי. המחירים עלו, והכסף שהבאתם מהבית וכמעט הספיק לכם לדירה, פתאום כבר לא מספיק.</p>
         <div class="punch">ההרשמה להגרלה לא עלתה לכם כסף. מה שעלה לכם ביוקר זה הזמן שבו עמדתם במקום ולא עשיתם כלום, ומחירי הדירות עלו.</div>
         <p>אנחנו לא נגד ההגרלות. מי שזוכה, מדהים, זו הזדמנות מעולה. אבל הגרלה היא לא תוכנית עבודה. הגרלה היא כמו כרטיס לוטו, פשוט של הממשלה.</p>
+        <figure class="talk-photos">
+          <img src="assets/talk-1.jpg" width="1200" height="1600" loading="lazy" alt="עמית מרצה על נדל״ן לקבוצת אנשי כוחות הביטחון">
+          <img src="assets/talk-2.jpg" width="1200" height="1600" loading="lazy" alt="הרצאת צמד ברזל, ״למי יש חלום לקנות דירה?״ מול קהל">
+          <figcaption>מתוך ההרצאות שלנו מול אנשי כוחות הביטחון</figcaption>
+        </figure>
         <p class="q">השאלה שאנחנו שואלים כל זוג שמגיע אלינו היא פשוטה:<br><span class="g">מה התוכנית שלכם ליום שאחרי, אם לא תזכו?</span></p>
         <p class="q">האם תוותרו על החלום או שאתם מוכנים ללמוד את לעשות את זה כמו שצריך?</p>
       </div>
